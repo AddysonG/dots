@@ -1,0 +1,121 @@
+{
+    "layer": "top",
+    "position": "top",
+    "modules-left": ["network", "power-profiles-daemon", "tray", "custom/music"],
+    "modules-center": ["hyprland/workspaces"],
+    "modules-right": ["battery", "backlight", "pulseaudio", "clock"],
+    "custom/logo": {
+        "format": "󰣇 ",
+        "tooltip": false
+    },
+    "hyprland/workspaces": {
+        "sort-by": "number",
+        "format": " {icon} ",
+        "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "6": ""
+            // "1": "",
+            // "2": "",
+            // "3": "",
+            // "4": "",
+            // "5": "",
+            // "6": ""
+        },
+        "move-to-monitor": true,
+        "persistent-workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": [],
+            "6": []
+        }
+    },
+    "tray": {
+        "icon-size": 18,
+        "spacing": 4
+    },
+    "custom/music": {
+        "format": " {}",
+        "escape": true,
+        "interval": 2,
+        "tooltip": false,
+        "exec": "playerctl metadata -p spotify --format='{{ title }}'",
+        "on-click": "playerctl -p spotify play-pause",
+        "on-click-right": "playerctl -p spotify next",
+        "max-length": 50
+    },
+    "network": {
+        "interval": 1,
+        "format-wifi": "{icon} On",
+        "format-ethernet": " On",
+        "format-disconnected": "󰖪 Off",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)",
+        "tooltip-format-ethernet": "{ifname}",
+        "tooltip-format-disconnected": "Disconnected",
+        "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+        "on-click": "kitty -e nmtui"
+    },
+    "clock": {
+        "interval": 1,
+        "locale": "en_AU.utf8",
+        "tooltip-format": "<tt><big><span font='JetBrainsMono Nerd Font'>{calendar}</span></big></tt>",
+        "format": " {:%m/%d (%a)  %H:%M}",
+        "calendar": {
+            "mode-mon-col": 3,
+            "format": {
+                "months":     "<span color='#b4befe'><b>{}</b></span>",
+                "weekdays":   "<span color='#89b4fa'><b>{}</b></span>",
+                "today":      "<span color='#f5e0dc'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions": {
+            "on-click": "mode"
+        }
+    },
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon} {percent}",
+        "reverse-scrolling": true,
+        "format-icons": ["", "", "", "", "", "", "", "", ""],
+        "tooltip": false
+    },
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+        "tooltip": true,
+        "format-icons": {
+            "default": " ?",
+            "performance": " Hi",
+            "balanced": " Med",
+            "power-saver": " Low"
+        },
+        "tooltip-format": "Power profile: {profile}"
+    },
+    "battery": {
+        "interval": 1,
+        "states": {
+            "warning": 25,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}",
+        "format-charging": "󱐋{icon} {capacity}",
+        "format-plugged": "󱐋{icon} {capacity}",
+        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    },
+    "pulseaudio": {
+        "scroll-step": 1, // %, can be a float
+        "format": "{icon} {volume}",
+        "format-muted": " <i>{volume}</i>",
+        "format-icons": {
+            "default": ["", "", ""]
+        },
+        "reverse-scrolling": true,
+        "on-click": "pavucontrol"
+    },
+    "reload_style_on_change": true
+}

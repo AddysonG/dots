@@ -1,0 +1,69 @@
+;; Configuration
+
+(defcfg
+  process-unmapped-keys yes
+  delegate-to-first-layer yes
+  concurrent-tap-hold yes ;; necessary for chord rebinds
+
+  ;; Change/add device names here
+  linux-dev-names-include (
+    "AT Translated Set 2 keyboard"
+  )
+)
+
+;; Aliases
+
+(defalias
+  ;; Base Layer
+
+  SPC (tap-hold-release 0 200 spc  lsft)
+
+  Z   (tap-hold-release 0 200 z    lmet)
+  X   (tap-hold-release 0 200 x    lctl)
+  C   (tap-hold-release 0 200 c    lalt)
+
+  SLH (tap-hold-release 0 200 /    lmet)
+  DOT (tap-hold-release 0 200 .    lctl)
+  COM (tap-hold-release 0 200 ,    lalt)
+
+  ESC (tap-hold-release 0 200 esc (layer-while-held secondary))
+  SC  (tap-hold-release 0 200 ;   (layer-while-held secondary))
+
+  ;; Secondary Layer
+
+  DEL (tap-hold-release 0 200 del lmet)
+  BDN (tap-hold-release 0 200 brdn ralt)
+  BUP (tap-hold-release 0 200 brup lctl)
+  VDN (tap-hold-release 0 200 vold lalt)
+)
+
+;; rebind dumb-ass Copilot key to menu
+(defchordsv2
+  (lsft lmet f23) menu 20 all-released ()
+)
+
+;; Layers
+
+(defsrc
+       1    2    3    4    5    6    7    8    9    0    -    =
+  tab  q    w    e    r    t    y    u    i    o    p
+  caps a    s    d    f    g    h    j    k    l    ;    '
+  lsft z    x    c    v    b    n    m    ,    .    /
+                           spc
+)
+
+(deflayer base
+       1    2    3    4    5    6    7    8    9    0    -    =
+  tab  q    w    e    r    t    y    u    i    o    p
+  @ESC a    s    d    f    g    h    j    k    l    @SC  '
+  lsft @Z   @X   @C   v    b    n    m    @COM @DOT @SLH
+                           @SPC
+)
+
+(deflayer secondary
+       f1   f2   f3   f4   f5   f6   f7   f8   f9   f10   f11   f12
+  _    _    _    _    _    _    home pgdn pgup end  _
+  _    _    S-`  `    menu _    lft  down up   rght _     _
+  _    _    _    _    _    _    _    _    _    _    _
+                           _
+)

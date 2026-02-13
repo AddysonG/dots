@@ -1,0 +1,96 @@
+@import "catppuccin-mocha.css";
+
+* {
+    font-family: JetBrainsMono Nerd Font Propo;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+}
+
+.modules-left > * > * {
+    padding-left: 1em;
+}
+
+.modules-right > * > * {
+    padding-right: 1em;
+}
+
+tooltip, #tray menu {
+    color: @subtext0;
+}
+
+#waybar {
+    color: @text;
+    background: alpha(@base, 0.7);
+    border-bottom: 1px solid alpha(@overlay0, 0.5);
+}
+
+#custom-logo {
+    color: @sapphire;
+}
+
+#workspaces button {
+    color: @blue;
+}
+
+#workspaces button.empty {
+    color: @subtext0;
+}
+
+#workspaces button.active {
+    color: @base;
+    background: @blue;
+}
+
+#workspaces button:hover {
+    border-color: transparent;
+}
+
+#network {
+    color: @sapphire;
+}
+
+#power-profiles-daemon {
+    color: @teal;
+}
+#power-profiles-daemon.balanced {
+    color: @blue;
+}
+#power-profiles-daemon.performance {
+    color: @maroon;
+}
+#power-profiles-daemon.power-saver {
+    color: @teal;
+}
+
+#tray {
+    color: @text;
+}
+
+#spotify {
+    color: @text;
+}
+
+#battery {
+    color: @green;
+}
+#battery.warning:not(.charging) {
+    color: @peach;
+}
+#battery.critical:not(.charging) {
+    color: @red;
+}
+
+#backlight {
+    color: @text;
+}
+
+#pulseaudio {
+    color: @mauve;
+}
+
+#clock {
+    color: @blue;
+}

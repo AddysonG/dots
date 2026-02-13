@@ -1,0 +1,28 @@
+# Modified from Catppuccin frappe
+
+[global]
+frame_color = "#8caaeef0"
+highlight = "#8caaeef0"
+frame_width = 2
+offset = (20, 20)
+font = "JetBrainsMono NerdFont Propo 12"
+gap_size = 8
+sort = update
+separator_color = frame
+corner_radius = 16
+enable_recursive_icon_lookup = true
+icon_theme = "Papirus-Dark, breeze-dark, Adwaita"
+stack_duplicates = false
+
+[urgency_low]
+background = "#303446df"
+foreground = "#c6d0f5f0"
+
+[urgency_normal]
+background = "#303446df"
+foreground = "#c6d0f5f0"
+
+[urgency_critical]
+background = "#303446df"
+foreground = "#eebebef0"
+frame_color = "#e78284f0"
