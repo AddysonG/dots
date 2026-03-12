@@ -3,6 +3,10 @@
 scan_timeout = 60
 add_newline = false
 
+[jobs]
+number_threshold = 1
+format = '[$number]($style) '
+
 [character]
 success_symbol = '[\$](bold green)'
 error_symbol = '[\$](bold red)'

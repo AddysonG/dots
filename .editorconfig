@@ -5,3 +5,10 @@ csharp_new_line_before_open_brace = all
 
 [*.{sh,bash}]
 indent_style = tab
+
+[*.lua]
+indent_style = space
+indent_size = 2
+
+[*.go]
+indent_style = tab

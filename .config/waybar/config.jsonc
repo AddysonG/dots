@@ -12,18 +12,12 @@
         "sort-by": "number",
         "format": " {icon} ",
         "format-icons": {
-            "1": "",
-            "2": "",
-            "3": "",
-            "4": "",
-            "5": "",
-            "6": ""
-            // "1": "",
-            // "2": "",
-            // "3": "",
-            // "4": "",
-            // "5": "",
-            // "6": ""
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "6": "6"
         },
         "move-to-monitor": true,
         "persistent-workspaces": {
@@ -51,9 +45,9 @@
     },
     "network": {
         "interval": 1,
-        "format-wifi": "{icon} On",
-        "format-ethernet": " On",
-        "format-disconnected": "󰖪 Off",
+        "format-wifi": "{icon}  On",
+        "format-ethernet": "  On",
+        "format-disconnected": "󰖪  Off",
         "tooltip-format-wifi": "{essid} ({signalStrength}%)",
         "tooltip-format-ethernet": "{ifname}",
         "tooltip-format-disconnected": "Disconnected",
@@ -64,7 +58,7 @@
         "interval": 1,
         "locale": "en_AU.utf8",
         "tooltip-format": "<tt><big><span font='JetBrainsMono Nerd Font'>{calendar}</span></big></tt>",
-        "format": " {:%m/%d (%a)  %H:%M}",
+        "format": "  {:%m/%d (%a)  %H:%M}",
         "calendar": {
             "mode-mon-col": 3,
             "format": {
@@ -79,7 +73,7 @@
     },
     "backlight": {
         "device": "intel_backlight",
-        "format": "{icon} {percent}",
+        "format": "{icon}  {percent}",
         "reverse-scrolling": true,
         "format-icons": ["", "", "", "", "", "", "", "", ""],
         "tooltip": false
@@ -89,10 +83,10 @@
         "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
         "tooltip": true,
         "format-icons": {
-            "default": " ?",
-            "performance": " Hi",
-            "balanced": " Med",
-            "power-saver": " Low"
+            "default": "  ?",
+            "performance": "  Hi",
+            "balanced": "  Med",
+            "power-saver": "  Low"
         },
         "tooltip-format": "Power profile: {profile}"
     },
@@ -102,15 +96,15 @@
             "warning": 25,
             "critical": 15
         },
-        "format": "{icon} {capacity}",
-        "format-charging": "󱐋{icon} {capacity}",
-        "format-plugged": "󱐋{icon} {capacity}",
+        "format": "{icon}  {capacity}",
+        "format-charging": "󱐋{icon}  {capacity}",
+        "format-plugged": "󱐋{icon}  {capacity}",
         "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
     },
     "pulseaudio": {
         "scroll-step": 1, // %, can be a float
-        "format": "{icon} {volume}",
-        "format-muted": " <i>{volume}</i>",
+        "format": "{icon}  {volume}",
+        "format-muted": "  Mute",
         "format-icons": {
             "default": ["", "", ""]
         },

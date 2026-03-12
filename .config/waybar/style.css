@@ -1,29 +1,34 @@
 @import "catppuccin-mocha.css";
 
 * {
-    font-family: JetBrainsMono Nerd Font Propo;
+    font-family: "Rubik",
+        "JetBrainsMono Nerd Font Propo",
+        "Noto Sans CJK JP",
+        "Noto Sans CJK TC",
+        "Noto Sans CJK SC",
+        "Noto Sans CJK";
+    font-weight: 500;
     font-size: 14px;
-    font-weight: bold;
     margin: 0;
     padding: 0;
-    border-radius: 0;
 }
 
-.modules-left > * > * {
+.modules-left>*>* {
     padding-left: 1em;
 }
 
-.modules-right > * > * {
+.modules-right>*>* {
     padding-right: 1em;
 }
 
-tooltip, #tray menu {
+tooltip,
+#tray menu {
     color: @subtext0;
 }
 
 #waybar {
     color: @text;
-    background: alpha(@base, 0.7);
+    background: alpha(@base, 0.5);
     border-bottom: 1px solid alpha(@overlay0, 0.5);
 }
 
@@ -33,6 +38,14 @@ tooltip, #tray menu {
 
 #workspaces button {
     color: @blue;
+    border-radius: 5px;
+    padding: 0 0.1em;
+    margin: 2px;
+    min-width: 0;
+    min-height: 0;
+    border: none;
+    box-shadow: none;
+    transition: all 100ms ease-in-out;
 }
 
 #workspaces button.empty {
@@ -41,6 +54,7 @@ tooltip, #tray menu {
 
 #workspaces button.active {
     color: @base;
+    padding: 0 0.6em;
     background: @blue;
 }
 
@@ -55,12 +69,15 @@ tooltip, #tray menu {
 #power-profiles-daemon {
     color: @teal;
 }
+
 #power-profiles-daemon.balanced {
     color: @blue;
 }
+
 #power-profiles-daemon.performance {
     color: @maroon;
 }
+
 #power-profiles-daemon.power-saver {
     color: @teal;
 }
@@ -75,10 +92,13 @@ tooltip, #tray menu {
 
 #battery {
     color: @green;
+    background: transparent;
 }
+
 #battery.warning:not(.charging) {
     color: @peach;
 }
+
 #battery.critical:not(.charging) {
     color: @red;
 }

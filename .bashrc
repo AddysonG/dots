@@ -5,9 +5,17 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# Some aliases for getting nicer visuals for certain commands
+
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias man='batman'
+alias clear='printf "\e[H\e[2J\e[3J"'
+
+# Convenient aliases for commands I run frequently
+
+alias hypredit='nvim ~/.config/hypr/hyprland.conf'
+
 PS1='[\u@\h \W]\$ '
 
 nnohup() {
@@ -18,9 +26,19 @@ bats() {
     BATS_RUN_SKIPPED=true command bats *.bats
 }
 
+# History
+HISTCONTROL=ignoreboth
+shopt -s histappend
+PROMPT_COMMAND="history -a; history -c; history -r${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
+
+# Bash Completion
+source /usr/share/bash-completion/bash_completion
+
 # Include additional bin directories on PATH
-export PATH=~/bin:$PATH
-export PATH="$PATH:/home/addys/.local/bin"
+export PATH=$HOME/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/scripts:$PATH
+export PATH=$HOME/go/bin:$PATH
 
 export EDITOR=nvim
 export SUDO_EDITOR=nvim
@@ -33,3 +51,7 @@ export FZF_DEFAULT_OPTS=" \
 
 eval "$(starship init bash)"
 eval "$(zoxide init bash)"
+eval "$(mise activate bash)"
+
+# opencode
+export PATH=/home/addys/.opencode/bin:$PATH
