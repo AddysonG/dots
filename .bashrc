@@ -9,8 +9,11 @@
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
-alias man='batman'
 alias clear='printf "\e[H\e[2J\e[3J"'
+
+if command -v batman >/dev/null 2>&1; then
+	alias man='batman'
+end
 
 # Convenient aliases for commands I run frequently
 
