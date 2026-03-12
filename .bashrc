@@ -35,7 +35,9 @@ shopt -s histappend
 PROMPT_COMMAND="history -a; history -c; history -r${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
 
 # Bash Completion
-source /usr/share/bash-completion/bash_completion
+if [[ -f /usr/share/bash-completion/bash_completion ]]; then
+	source /usr/share/bash-completion/bash_completion
+fi
 
 # Include additional bin directories on PATH
 export PATH=$HOME/bin:$PATH

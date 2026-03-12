@@ -6,11 +6,9 @@ if [[ -x /opt/homebrew/bin/brew ]]; then
 	eval "$(/opt/homebrew/binbrew shellenv bash)"
 fi
 
-if type brew &>/dev/null
-then
+if type brew &>/dev/null; then
   HOMEBREW_PREFIX="$(brew --prefix)"
-  if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]
-  then
+  if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then
     source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
   else
     for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*
