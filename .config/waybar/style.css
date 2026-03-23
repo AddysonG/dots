@@ -29,7 +29,6 @@ tooltip,
 #waybar {
     color: @text;
     background: alpha(@base, 0.5);
-    border-bottom: 1px solid alpha(@overlay0, 0.5);
 }
 
 #custom-logo {
