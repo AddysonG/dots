@@ -10,6 +10,7 @@
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias clear='printf "\e[H\e[2J\e[3J"'
+alias randwall='./.config/hypr/scripts/random-wall.sh'
 
 if command -v batman >/dev/null 2>&1; then
 	alias man='batman'
@@ -40,10 +41,17 @@ if [[ -f /usr/share/bash-completion/bash_completion ]]; then
 fi
 
 # Include additional bin directories on PATH
-export PATH=$HOME/bin:$PATH
-export PATH=$HOME/.local/bin:$PATH
-export PATH=$HOME/scripts:$PATH
-export PATH=$HOME/go/bin:$PATH
+prepend_path() {
+	case ":${PATH}:" in
+		*:"$1":*) ;;
+		*) PATH="$1:$PATH" ;;
+	esac
+}
+prepend_path "$HOME/bin"
+prepend_path "$HOME/.local/bin"
+prepend_path "$HOME/scripts"
+prepend_path "$HOME/go/bin"
+export PATH
 
 export npm_config_prefix=$HOME/.local
 
@@ -59,9 +67,6 @@ export FZF_DEFAULT_OPTS=" \
 eval "$(starship init bash)"
 eval "$(zoxide init bash)"
 eval "$(direnv hook bash)"
-
-# opencode
-export PATH=/home/addys/.opencode/bin:$PATH
 
 # Automatically source python venv in tmux if it has already been started
 if [[ -n "$VIRTUAL_ENV" ]]; then

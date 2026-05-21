@@ -11,7 +11,8 @@
       "Bash(pytest *)",
       "Bash(pre-commit *)"
     ],
-    "deny": []
+    "deny": [],
+    "defaultMode": "auto"
   },
   "model": "opus",
   "statusLine": {
@@ -31,7 +32,13 @@
     }
   },
   "effortLevel": "high",
+  "awaySummaryEnabled": false,
+  "tui": "fullscreen",
   "theme": "dark",
   "editorMode": "normal",
-  "tui": "fullscreen"
+  "agentPushNotifEnabled": true,
+  "skipAutoPermissionPrompt": true,
+  "env": {
+    "CLAUDE_CODE_SCROLL_SPEED": "2"
+  }
 }
