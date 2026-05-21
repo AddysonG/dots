@@ -1,6 +1,6 @@
-# Based on Catppuccin Mocha
+#:schema https://yazi-rs.github.io/schemas/theme.json
 
-"$schema" = "https://yazi-rs.github.io/schemas/theme.json"
+# Based on Catppuccin Mocha
 
 # : Manager {{{
 
@@ -171,10 +171,6 @@ rules = [
 	# Fallback
 	{ url = "*", fg = "#cdd6f4" },
 	{ url = "*/", fg = "#89b4fa" },
-
-	# TODO: remove
-	{ name = "*", fg = "#cdd6f4" },
-	{ name = "*/", fg = "#89b4fa" }
 ]
 
 # : }}}
