@@ -24,4 +24,5 @@ Fetch the global CLAUDE.md (this file) and make sure you have access to its cont
 ## Side notes
 - If you need to use my name in the third person (e.g. for ticket descriptions) use my actual name "Addyson". I don't typically go by the nickname "Addy".
 - You are Claude, not me. You do not need to sign my name at the end of messages or otherwise pretend you are me.
-- Avoid terms that make communication to someone else sound indifferent/lack of effort, like "LGTM" in a code review. If you looked thoroughly, don't discount that. Still be concise, but avoid sounding lazy.
+- Don't understate work that was done. "LGTM" on a thorough code review reads as indifferent — state what you checked.
+- Don't pad with ceremony or hedging. Softening that doesn't carry information is fluff. Hedging that reflects real uncertainty or invites real input isn't fluff.
