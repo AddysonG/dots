@@ -12,18 +12,30 @@ alias grep='grep --color=auto'
 alias clear='printf "\e[H\e[2J\e[3J"'
 alias randwall='./.config/hypr/scripts/random-wall.sh'
 
-if command -v batman >/dev/null 2>&1; then
+if command -v batman >/dev/null; then
 	alias man='batman'
 fi
 
-# Convenient aliases for commands I run frequently
+# Prompt
+__prompt_branch() {
+	local branch
+	branch=$(git branch --show-current 2>/dev/null)
+	[[ -n $branch ]] && printf '[%s]' "$branch"
+}
 
-alias hypredit='nvim ~/.config/hypr/hyprland.conf'
+__prompt_status_color=$'\e[1;32m'
+__prompt_set_status_color() {
+	if (( $1 == 0 )); then
+		__prompt_status_color=$'\e[1;32m'
+	else
+		__prompt_status_color=$'\e[1;31m'
+	fi
+}
 
-PS1='[\u@\h \W]\$ '
+PS1='\[\e[1;33m\]\u:\[\e[0m\]\[\e[1;36m\]\w\[\e[0m\]\[\e[1;35m\]$(__prompt_branch)\[\e[0m\]\n\[$__prompt_status_color\]\$\[\e[0m\] '
 
-nnohup() {
-    nohup "$@" >/dev/null >&1 &
+detach() {
+	( nohup "$@" >/dev/null 2>&1 & )
 }
 
 bats() {
@@ -33,7 +45,7 @@ bats() {
 # History
 HISTCONTROL=ignoreboth
 shopt -s histappend
-PROMPT_COMMAND="history -a; history -c; history -r${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
+PROMPT_COMMAND="__prompt_set_status_color \$?; history -a; history -c; history -r${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
 
 # Bash Completion
 if [[ -f /usr/share/bash-completion/bash_completion ]]; then
@@ -64,9 +76,10 @@ export FZF_DEFAULT_OPTS=" \
 --color=selected-bg:#45475A \
 --color=border:#6C7086,label:#CDD6F4"
 
-eval "$(starship init bash)"
-eval "$(zoxide init bash)"
-eval "$(direnv hook bash)"
+command -v zoxide >/dev/null && eval "$(zoxide init bash)"
+command -v direnv >/dev/null && eval "$(direnv hook bash)"
+
+command -v brew >/dev/null && export PATH="$(brew --prefix python)/libexec/bin:$PATH"
 
 # Automatically source python venv in tmux if it has already been started
 if [[ -n "$VIRTUAL_ENV" ]]; then

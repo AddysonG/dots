@@ -5,7 +5,12 @@ This directory contains most of my dotfiles. Some are cross-platform, and others
 ## Installation
 
 1. Clone this repo into your home directory.
-2. `cd` into the repo (e.g. `~/dots/`) and run `stow .` OR copy files manually if you don't want to apply all of them.
+2. Ensure the following directories exist if you intend to use them so Stow symlinks at the correct level:
+    - `~/.claude`
+    - `~/.vim`
+    - `~/.config/kitty`
+3. _(optional)_ Add `--ignore` lines into `~/.stowrc` for directories you don't need symlinked. Wrap in single quotes and escape periods. Example line: `--ignore='\.config/hypr'`
+4. `cd` into the repo (e.g. `~/dots/`) and run `stow .` OR copy files manually if you don't want to apply all of them.
 
 If any config files already exist on the machine, there are two options to resolve conflicts:
 
@@ -24,8 +29,18 @@ If any config files already exist on the machine, there are two options to resol
 
 ## IME
 
-- I use fcitx5 with some settings changed.
+I use fcitx5 with some settings changed.
 
 ## Network manager
 
-- If on Arch, add `NetworkManager` as an additional package and do NOT carry over the configuration from the install script if using it, as doing so will require extra changes to switch the network manager.
+If on Arch, add `NetworkManager` as an additional package and do NOT carry over the configuration from the install script if using it, as doing so will require extra changes to switch the network manager.
+
+## Claude Code
+
+To set up integration with Herdr, launch Claude Code at least once, then:
+
+```sh
+herdr integration install claude
+```
+
+This write a `SessionStart` hook into `.claude/settings.json` as part of the setup process. Try to avoid adding that hook when committing.

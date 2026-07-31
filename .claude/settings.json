@@ -3,7 +3,7 @@
     "allow": [
       "Read",
       "WebFetch",
-      "Web Search",
+      "WebSearch",
       "Bash(find *)",
       "Bash(grep *)",
       "Bash(ls *)",
@@ -11,31 +11,56 @@
       "Bash(pytest *)",
       "Bash(pre-commit *)"
     ],
-    "deny": [],
+    "deny": [
+      "AskUserQuestion",
+      "Skill(review)",
+      "Skill(security-review)"
+    ],
     "defaultMode": "auto"
   },
-  "model": "opus",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if [ \"$HERDR_ENV\" = 1 ]; then cat ~/.claude/context/herdr-statusline.md 2>/dev/null || true; fi",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ~/.claude/hooks/caveman-mode-tracker.js",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  },
   "statusLine": {
     "type": "command",
     "command": "~/.claude/statusline.sh"
   },
   "enabledPlugins": {
-    "lua-lsp@claude-plugins-official": true,
-    "caveman@caveman": true
+    "lua-lsp@claude-plugins-official": true
   },
-  "extraKnownMarketplaces": {
-    "caveman": {
-      "source": {
-        "source": "github",
-        "repo": "JuliusBrussee/caveman"
-      }
-    }
+  "skillOverrides": {
+    "review": "user-invocable-only",
+    "security-review": "user-invocable-only"
   },
   "effortLevel": "high",
+  "promptSuggestionEnabled": false,
   "awaySummaryEnabled": false,
   "tui": "fullscreen",
+  "autoMemoryEnabled": false,
+  "autoDreamEnabled": false,
   "theme": "dark",
-  "editorMode": "normal",
   "agentPushNotifEnabled": true,
   "skipAutoPermissionPrompt": true,
   "env": {

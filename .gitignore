@@ -1,1 +1,3 @@
 .config/fcitx5/
+.claude/skills/herdr
+.claude/hooks/herdr-agent-state.sh

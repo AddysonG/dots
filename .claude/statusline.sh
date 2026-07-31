@@ -70,28 +70,6 @@ fi
 context_percent=$(fetch_int context_window.used_percentage)
 context_bar=$(make_bar "$context_percent" "$bar_width")
 
-five_hour_usage=$(fetch_int rate_limits.five_hour.used_percentage)
-five_hour_resets_at=$(fetch rate_limits.five_hour.resets_at)
-
-# Compute time remaining until 5-hour window resets
-if [ -n "$five_hour_resets_at" ] && [ "$five_hour_resets_at" != "null" ]; then
-	now=$(date +%s)
-	secs_remaining=$(( five_hour_resets_at - now ))
-	if [ "$secs_remaining" -le 0 ]; then
-		usage_reset_label="(resets now)"
-	else
-		hrs=$(( secs_remaining / 3600 ))
-		mins=$(( (secs_remaining % 3600) / 60 ))
-		if [ "$hrs" -gt 0 ]; then
-			usage_reset_label="(${hrs}h${mins}m)"
-		else
-			usage_reset_label="(${mins}m)"
-		fi
-	fi
-else
-	usage_reset_label=""
-fi
-
 # Git branch: full colored segment (icon + name + trailing separator), or empty
 git_branch=$(git -C "$(fetch workspace.current_dir)" --no-optional-locks branch --show-current 2>/dev/null)
 if [ -n "$git_branch" ]; then
@@ -112,7 +90,6 @@ fi
 printf "%s" \
 	"${branch_label}" \
 	"${YELLOW} ctx:${context_percent}% ${context_bar}${RESET}  " \
-	"${BLUE}󰓅 usage:${five_hour_usage}% ${usage_reset_label}${RESET}  " \
 	"${RED}󰚩 ${model_label}${RESET}" \
 	$'\n'
 
