@@ -17,12 +17,18 @@ align_array_table = false
 indent_style = tab
 indent_size = 4
 
-
 [*.go]
 indent_style = tab
 
 [*.js]
 indent_size = 2
 
+[*.{json,jsonc}]
+indent_size = 2
+
 [*.ts]
+indent_size = 2
+
+[*.qml]
+indent_style = space
 indent_size = 2

@@ -1,4 +1,7 @@
 {
+  "env": {
+    "CLAUDE_CODE_SCROLL_SPEED": "2"
+  },
   "permissions": {
     "allow": [
       "Read",
@@ -43,6 +46,7 @@
       }
     ]
   },
+  "model": "Opus",
   "statusLine": {
     "type": "command",
     "command": "~/.claude/statusline.sh"
@@ -62,8 +66,5 @@
   "autoDreamEnabled": false,
   "theme": "dark",
   "agentPushNotifEnabled": true,
-  "skipAutoPermissionPrompt": true,
-  "env": {
-    "CLAUDE_CODE_SCROLL_SPEED": "2"
-  }
+  "skipAutoPermissionPrompt": true
 }

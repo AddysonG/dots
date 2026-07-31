@@ -78,6 +78,7 @@ export FZF_DEFAULT_OPTS=" \
 
 command -v zoxide >/dev/null && eval "$(zoxide init bash)"
 command -v direnv >/dev/null && eval "$(direnv hook bash)"
+command -v luarocks >/dev/null && eval "$(luarocks path)"
 
 command -v brew >/dev/null && export PATH="$(brew --prefix python)/libexec/bin:$PATH"
 
