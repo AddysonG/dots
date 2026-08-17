@@ -17,6 +17,10 @@ alias battery='cat /sys/class/power_supply/BAT0/capacity'
 
 alias randwall='./.config/hypr/scripts/random-wall.sh'
 
+# Typos
+
+alias xit='exit'
+
 if command -v batman >/dev/null; then
 	alias man='batman'
 fi

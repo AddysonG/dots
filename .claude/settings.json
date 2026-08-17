@@ -44,7 +44,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node ~/.claude/hooks/caveman-mode-tracker.js",
+            "command": "cat ~/.claude/context/style-injection.md 2>/dev/null || true",
             "timeout": 5
           }
         ]
@@ -65,6 +65,7 @@
   "autoMemoryEnabled": false,
   "autoDreamEnabled": false,
   "theme": "dark",
+  "verbose": false,
   "agentPushNotifEnabled": true,
   "skipAutoPermissionPrompt": true
 }
