@@ -21,6 +21,11 @@
     ],
     "defaultMode": "auto"
   },
+  "model": "claude-opus-4-8",
+  "skillOverrides": {
+    "review": "user-invocable-only",
+    "security-review": "user-invocable-only"
+  },
   "hooks": {
     "SessionStart": [
       {
@@ -46,17 +51,12 @@
       }
     ]
   },
-  "model": "Opus",
   "statusLine": {
     "type": "command",
     "command": "~/.claude/statusline.sh"
   },
   "enabledPlugins": {
     "lua-lsp@claude-plugins-official": true
-  },
-  "skillOverrides": {
-    "review": "user-invocable-only",
-    "security-review": "user-invocable-only"
   },
   "effortLevel": "high",
   "promptSuggestionEnabled": false,

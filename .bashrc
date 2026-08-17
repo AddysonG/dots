@@ -10,6 +10,11 @@
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias clear='printf "\e[H\e[2J\e[3J"'
+
+# Utility commands
+
+alias battery='cat /sys/class/power_supply/BAT0/capacity'
+
 alias randwall='./.config/hypr/scripts/random-wall.sh'
 
 if command -v batman >/dev/null; then
