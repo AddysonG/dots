@@ -1,0 +1,38 @@
+# General environment for uwsm-managed session (sourced as POSIX sh).
+# Migrated from ~/.config/hypr/hyprland/env.lua. Format: export KEY=VAL.
+
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
+# GPU compatibility
+export LIBVA_DRIVER_NAME=nvidia
+export __GLX_VENDOR_LIBRARY_NAME=nvidia
+export __GLZ_VENDOR_LIBRARY_NAME=nvidia
+export __GL_GSYNC_ALLOWED=1
+export __GL_VRR_ALLOWED=0
+export NVD_BACKEND=direct
+
+# Enable Wayland support for some electron apps
+export ELECTRON_OZONE_PLATFORM_HINT=auto
+
+# Toolkit backend
+export SDL_VIDEODRIVER="wayland,x11"
+export CLUTTER_BACKEND=wayland
+
+# QT
+export QT_QPA_PLATFORM="wayland;xcb"
+export QT_QPA_PLATFORMTHEME=qt6ct
+export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+export QT_AUTO_SCREEN_SCALE_FACTOR=1
+
+# GDK
+export GDK_BACKEND="wayland,x11,*"
+
+export GTK_USE_PORTAL=1
+
+# XDG (uwsm sets XDG_CURRENT_DESKTOP and XDG_SESSION_DESKTOP from DesktopNames;
+# XDG_SESSION_TYPE is only propagated by uwsm, not set, so keep it explicit)
+export XDG_SESSION_TYPE=wayland
+
+# Cursor
+export XCURSOR_THEME=catppuccin-mocha-dark-cursors
+export XCURSOR_SIZE=26

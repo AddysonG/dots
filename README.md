@@ -27,6 +27,14 @@ If any config files already exist on the machine, there are two options to resol
 - I use Breeze dark theme as a default for GTK and QT apps. There are packages for these, some of which need to be installed through the AUR on Arch.
 - I use Papirus icon theme. Again, there are packages for this.
 
+```
+# Official repos
+breeze breeze5 breeze-gtk papirus-icon-theme qt5ct qt6ct noto-fonts noto-fonts-cjk
+
+# AUR
+catppuccin-cursors-mocha
+```
+
 ## IME
 
 I use fcitx5 with some settings changed.

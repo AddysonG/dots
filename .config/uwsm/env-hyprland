@@ -1,0 +1,7 @@
+# Hyprland-specific environment for uwsm-managed session (HYPR* and AQ_* only).
+# Migrated from ~/.config/hypr/hyprland/env.lua. Format: export KEY=VAL.
+
+export AQ_DRM_DEVICES=/dev/dri/intel-igpu
+
+export HYPRCURSOR_THEME=catppuccin-mocha-dark-cursors
+export HYPRCURSOR_SIZE=26

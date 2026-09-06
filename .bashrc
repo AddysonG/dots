@@ -9,6 +9,7 @@
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
+alias tree='LC_COLLATE=C tree -F --dirsfirst'
 alias clear='printf "\e[H\e[2J\e[3J"'
 
 # Utility commands
@@ -95,3 +96,6 @@ command -v brew >/dev/null && export PATH="$(brew --prefix python)/libexec/bin:$
 if [[ -n "$VIRTUAL_ENV" ]]; then
 	source "$VIRTUAL_ENV/bin/activate"
 fi
+
+# Disable ctrl+s "freezing" the terminal
+stty -ixon
